@@ -1,7 +1,7 @@
 <template>
     <div class="post">
         <h3>{{post.title}}</h3>
-        <p>{{snippet}}</p>
+        <p>{{post.price}}</p>
     </div>
 </template>
 <script>
