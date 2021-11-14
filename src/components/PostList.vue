@@ -7,7 +7,7 @@
                 <span>{{cart.length}}</span>
             </div>
             
-            <div>Total Price:{{computeSum}}</div>
+            <div class="price__group"><img src="../assets/money.png" alt="sum">${{computeSum}}</div>
         </div>
     </div>
     <div class="post-list">
@@ -44,7 +44,7 @@ export default {
 </script>
 <style scoped>
     .header{
-        width:30%;
+        width:40%;
         margin:auto;
         display:flex;
         align-items: center;
@@ -54,6 +54,7 @@ export default {
     .header__info img{
         height:50px;
         object-fit: contain;
+        margin:0 1rem;
     }
 
     .img__group{
@@ -63,7 +64,15 @@ export default {
     position:absolute;
     color:red;
     font-weight:bold;
-    font-size:1rem;
+    right:10px;
+    font-size:1.2rem;
+}
+
+.price__group{
+    display:flex;
+    align-items:center;
+    color:#eee;
+    font-size:1.2rem;
 }
 
     input{
@@ -77,9 +86,11 @@ export default {
     .header__info{
         display:flex;
         align-items: center;
+        justify-content: space-between;
     }
     .post-list{
         display:grid;
+        margin-top:3rem;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap:10px 20px;
     }
