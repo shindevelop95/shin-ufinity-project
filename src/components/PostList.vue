@@ -34,7 +34,7 @@ export default {
         })
 
         const computeSum = computed(() => {
-            return cart.value.reduce((acc,product) => acc + product.price,0)
+            return cart.value.reduce((acc,product) => acc + product.price,0).toFixed(2)
         })
         console.log("see sum",computeSum)
         console.log("see cart info", cart)
@@ -64,7 +64,8 @@ export default {
     position:absolute;
     color:red;
     font-weight:bold;
-    right:10px;
+    top:-10%;
+    right:1px;
     font-size:1.2rem;
 }
 

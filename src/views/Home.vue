@@ -1,9 +1,10 @@
 <template>
+  <h3>Ufinity Vue Project By Xinlong</h3>
   <div v-if="error">{{error}}</div>
   <div v-if="posts.length">
     <PostList v-if="showPost" :posts="posts"/>
   </div>
-  <div v-else>Loading...</div>
+  <div class="loader" v-else>Loading...</div>
  <!-- <button @click="showPost = !showPost">Toggle me</button>
   <button @click="posts.pop()">delete</button>-->
 </template>
@@ -43,5 +44,15 @@ export default {
 }
 </script>
 <style scoped>
+  h3{
+    color:#eee;
+    font-size:2rem;
+    border-bottom:2px solid #eee;
+    padding-bottom:2rem;
+  }
 
+  .loader{
+    color:#eee;
+    font-size:3rem;
+  }
 </style>
