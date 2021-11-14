@@ -1,24 +1,45 @@
 <template>
     <div class="post">
-        <h3>{{post.title}}</h3>
-        <p>{{post.price}}</p>
+        <img class="post__img" :src="post.image" :alt="post.title"/>
+        <h3 class="post__title">{{titleSnippet}}</h3>
+        <p class="post__description">{{snippet}}</p>
+        <p class="post__price">${{post.price}}</p>
+         <button @click="addToCart({id:post.id,price:post.price})">Add to cart</button>
     </div>
 </template>
 <script>
-import {computed, onMounted, onUnmounted, onUpdated} from 'vue'
+import {computed, onMounted, onUnmounted, onUpdated,ref} from 'vue'
 export default {
-    props:['post'],
+    props:['post','cart'],
     setup(props){
+       
         onMounted(() => console.log('mounted'));
         onUnmounted(() => console.log('component unmounted'))
         onUpdated(() => console.log('component updated'))
-        console.log("show me the propss",props)
-        const snippet = computed(() => {
-            return props.post.body.substring(0,100) + '...'
+       // console.log("show me the propss",props)
+        const titleSnippet = computed(() => {
+            return props.post.title.substring(0,40)
         })
-        return {snippet}
+        const snippet = computed(() => {
+            return props.post.description.substring(0,85) + '...'
+        })
+
+        const addToCart = (product) => {
+            props.cart.push(product)
+        }
+        console.log("cart",props.cart)
+        return {titleSnippet,snippet, addToCart}
     }
-
-
 }
 </script>
+<style scoped>
+    .post{
+         box-shadow: 5px 10px 8px 10px #eee;
+         padding:50px;
+         height:450px;
+    }
+    .post__img{
+        height:250px;
+        width:200px;
+    }
+</style>
